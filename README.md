@@ -1,2 +1,3 @@
 # Healthcare-data-analysis-repo
-This repository contains the files, scripts, and dashboards related to healthcare data analysis
+
+Here is a Power BI dashboard developped to evaluate hospital performance across the U.S.
