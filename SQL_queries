@@ -1,0 +1,24 @@
+CREATE VIEW covid19.3_time_analysis AS
+SELECT
+  country_name, date,
+  SUM(new_persons_vaccinated) AS total_vaccinations,
+  SUM(new_confirmed) AS total_confirmed,
+  SUM (new_deceased) AS total_deceases
+FROM
+  `bigquery-public-data.covid19_open_data.covid19_open_data`
+GROUP BY
+  country_name, date
+ORDER BY  
+  total_vaccinations desc, date;
+ 
+SELECT
+  country_name,
+  date,
+  total_vaccinations,
+  total_confirmed,
+  total_deceases,
+  SUM(total_vaccinations) OVER (PARTITION BY date) AS total_vaccinations_worldwide,
+  SUM(total_confirmed) OVER (PARTITION BY date) AS total_confirmed_worldwide,
+  SUM(total_deceases) OVER (PARTITION BY date) AS total_deceases_worldwide
+FROM
+  `covid19.3_time_analysis`
