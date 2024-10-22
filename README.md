@@ -18,7 +18,7 @@ cd repository_name
 ```
 - Run the script:
 ```bash
-python xml_to_csv.py
+python xml_to_csv_converter.py
 ```
 When prompted, enter the path to the XML file you want to convert:
 
